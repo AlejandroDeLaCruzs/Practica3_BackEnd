@@ -41,7 +41,7 @@ router.post("/login", async (req, res) => {
         const validPass = await bcrypt.compare(password, user.password);
         if (!validPass) return res.status(404).send({ message: "Contraseña incorrecta" });
 
-        const token = jwt.sign({ id: user._id?.toString(), email: user.email } as JwtPayload, SECRET as string, {
+        const token = jwt.sign({ id: user._id, email: user.email } as JwtPayload, SECRET as string, {
             expiresIn: "1h"
         });
 
@@ -49,8 +49,9 @@ router.post("/login", async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error })
     }
-
 })
+
+export default router;
 
 
 

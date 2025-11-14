@@ -1,5 +1,6 @@
+import { ObjectId } from "mongodb";
 
 export type JwtPayload = {
-    id: string;
+    id: ObjectId;
     email: string;
 }
