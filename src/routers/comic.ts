@@ -74,7 +74,7 @@ router.delete("/:id", verifyToken, verifyComicOwner, async (req: AuthRequest, re
         const comicModificado = await getCollection().deleteOne(
             { _id: new ObjectId(id) },
         );
-        res.status(200).send({ message: "Comic modifcado con existo", comicModificado })
+        res.status(200).send({ message: "Comic eliminado con éxito", comicModificado })
     } catch (error) {
         console.log(error);
     }
