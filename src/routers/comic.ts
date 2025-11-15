@@ -61,7 +61,7 @@ router.put("/:id", verifyToken, verifyBodyComic, verifyComicOwner, async (req: A
             { _id: new ObjectId(id) },
             { $set: req.body },
         );
-        res.status(200).send({ message: "Comic modifcado con existo", comicModificado });
+        res.status(200).send({ message: "Comic modifcado con éxito", comicModificado });
     } catch (error) {
         console.log(error);
     }
