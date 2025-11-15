@@ -30,7 +30,7 @@ export const verifyBodyComic = (req: AuthRequest, res: Response, next: NextFunct
         return;
     }
 
-    if ((year && typeof year !== "number") || year < 1990) {
+    if ((year && typeof year !== "number") || year < 1900) {
         res.status(400).send({ succes: false, message: "year debe ser un número positivo" });
         return;
     }

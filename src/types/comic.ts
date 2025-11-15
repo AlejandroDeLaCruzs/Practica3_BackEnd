@@ -6,5 +6,6 @@ export type Comic = {
     author: string,
     year: number,
     publisher?: string
-    userId: string,
+    userId: ObjectId,
+    read?: boolean;
 }

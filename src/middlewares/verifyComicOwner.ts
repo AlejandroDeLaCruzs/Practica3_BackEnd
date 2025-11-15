@@ -13,14 +13,14 @@ export const verifyComicOwner = async (req:AuthRequest, res: Response, next: Nex
         }
 
         const objectId = new ObjectId(id);
-        const collection = getDb().collection<Comic>("Comic");
+        const collection = getDb().collection<Comic>("Comics");
 
         const comic = await collection.findOne({ _id: objectId });
         if (!comic) {
             return res.status(404).json({ message: "No existe un cómic con ese ID" });
         }
 
-        if (comic.publisher !== req.user?.id) {
+        if (comic.userId !== req.user?.id) {
             return res.status(403).json({ message: "No tiene permisos para modificar este cómic" });
         }
 
