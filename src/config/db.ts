@@ -10,7 +10,7 @@ export const connectMongoDB = async (): Promise<void> => {
         mongoCLient = new MongoClient(url);
         await mongoCLient.connect();
         db = mongoCLient.db(dbname);
-        console.log("Te has conectado a la BBDD" + dbname);
+        console.log("Te has conectado a la BBDD: " + dbname);
 
     } catch (error) {
         console.log("No se ha podio conectar a la BBDD");

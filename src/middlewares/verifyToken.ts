@@ -23,7 +23,6 @@ export const verifyToken = (req: AuthRequest, res: Response, next: NextFunction)
             res.status(403).json({ message: "Invalid access token" });
             return;
         }
-
         req.user = decoded as JwtPayload ;
         next();
     });

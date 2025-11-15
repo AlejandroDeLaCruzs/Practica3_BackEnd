@@ -18,7 +18,6 @@ export const verifyBodyComic = (req: AuthRequest, res: Response, next: NextFunct
         }
     }
 
-
     const { title, author, year, publisher } = req.body;
 
     if (title && typeof title !== "string") {

@@ -19,7 +19,7 @@ router.post("/register", async (req, res) => {
         const { email, password } = req.body as User;
 
         const userRegistrado = await coleccion().findOne({ email });
-        if (userRegistrado) return res.send(400).send({ message: "Usuario ya registrado" });
+        if (userRegistrado) return res.status(400).send({ message: "Usuario ya registrado" });
 
         const passwordEncriptada = await bcrypt.hash(password, 10);
 
